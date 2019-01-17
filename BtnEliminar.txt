@@ -1,0 +1,18 @@
+protected void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if (CmbRegistro.Text != "")
+            {
+                if (reg.Eliminar(CmbRegistro.Text))
+                {
+                    LblEliminar.Text = "El registro se elimino correctamente";
+                    CmbRegistro.DataSource = reg.Consultar();
+                    CmbRegistro.DataTextField = "Nombre";
+                    CmbRegistro.DataValueField = "Nombre";
+                    CmbRegistro.DataBind();
+                }
+                else
+                {
+                    LblEliminar.Text = "El registro no se pudo eliminar";
+                }
+            }
+        }
