@@ -1,0 +1,32 @@
+protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            if (TxtCiudad2.Text != "" & TxtNombre2.Text != "" & TxtTelefono2.Text != "" & TxtCiudad02.Text != "" & TxtCiudad12.Text != "" & TxtCiudad13.Text != "")
+            {
+                if (TxtCiudad12.Text != TxtCiudad13.Text)
+                {
+                    LblGuardar2.Text = "La contraseña y su confirmacion no coinciden";
+                }
+                else
+                {
+                    if (reg.InsertarTurista(TxtNombre2.Text, TxtTelefono2.Text, TxtCiudad2.Text, TxtCiudad02.Text, TxtCiudad12.Text))
+                    {
+
+                        LblGuardar2.Text = "El registro se guardo correctamente";
+                        TxtCiudad2.Text = "";
+                        TxtTelefono2.Text = "";
+                        TxtNombre2.Text = "";
+                        TxtCiudad02.Text = "";
+                        TxtCiudad12.Text = "";
+                    }
+                    else
+                    {
+                        LblGuardar2.Text = "El registro no se pudo guardar";
+                    }
+                }
+
+            }
+            else
+            {
+                LblGuardar2.Text = "Por favor completa los campos";
+            }
+        }
